@@ -1,31 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>AstraMind — Personal Astrology Intelligence</title>
-  <meta name="description" content="Real birth chart insights based on your exact planetary positions." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,400&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <meta name="description" content="Real birth chart insights based on your exact planetary positions."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,400&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
 
-  <!-- ── GOOGLE ANALYTICS ── Replace G-XXXXXXXXXX with your real tracking ID ── -->
+  <!-- Google Analytics — REPLACE G-XXXXXXXXXX with your real ID -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
   <script>
-    window.dataLayer = window.dataLayer || [];
+    window.dataLayer=window.dataLayer||[];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
+    gtag('js',new Date());
+    gtag('config','G-XXXXXXXXXX');
   </script>
-  <!-- ─────────────────────────────────────────────────────────────────────── -->
 
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
-<!-- ══════════════════════════════════════════════════
-     SCREEN: ONBOARDING
-══════════════════════════════════════════════════ -->
+<!-- SCREEN: ONBOARDING -->
 <div id="screen-onboarding" class="screen active">
   <div class="stars" id="stars1"></div>
   <div class="onboard-wrap">
@@ -43,9 +40,7 @@
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════════════
-     SCREEN: PROFILE FORM
-══════════════════════════════════════════════════ -->
+<!-- SCREEN: PROFILE FORM -->
 <div id="screen-form" class="screen">
   <div class="stars" id="stars2"></div>
   <div class="form-wrap">
@@ -54,57 +49,55 @@
       <div class="brand-sm">✦ ASTRAMIND</div>
     </div>
     <div class="step-dots" id="step-dots">
-      <span class="dot active"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
+      <span class="dot active"></span><span class="dot"></span><span class="dot"></span>
     </div>
 
-    <!-- Step 0 -->
+    <!-- Step 0: intro -->
     <div class="form-step active" id="fstep-0">
       <div class="orb-wrap"><div class="orb-ring r1"></div><div class="orb-ring r2"></div><div class="orb-core">☽</div></div>
       <h2 class="font-display">Your Birth Chart</h2>
       <p class="step-sub">We calculate your exact planetary positions for insights specific to <em>you</em>.</p>
       <ul class="what-list">
         <li>✓ Your actual Sun, Moon &amp; Rising sign</li>
-        <li>✓ All 9 planetary positions</li>
-        <li>✓ Your active life chapter</li>
-        <li>✓ Personalized daily insights</li>
+        <li>✓ All 9 planetary positions with house placement</li>
+        <li>✓ Your active life chapter (Vimshottari Dasha)</li>
+        <li>✓ Personalized daily, weekly &amp; monthly insights</li>
       </ul>
       <button class="btn-primary" id="step0-next">Begin →</button>
     </div>
 
-    <!-- Step 1 -->
+    <!-- Step 1: personal details -->
     <div class="form-step" id="fstep-1">
       <h2 class="font-display">Your Details</h2>
       <p class="step-sub">Used to calculate your birth chart accurately.</p>
       <div class="field">
         <label>Your Name</label>
-        <input type="text" id="inp-name" placeholder="First and last name" autocomplete="off" />
+        <input type="text" id="inp-name" placeholder="First and last name" autocomplete="off"/>
       </div>
       <div class="field-row">
         <div class="field">
           <label>Date of Birth</label>
-          <input type="date" id="inp-dob" />
+          <input type="date" id="inp-dob"/>
         </div>
         <div class="field">
           <label>Birth Time</label>
-          <input type="time" id="inp-time" />
+          <input type="time" id="inp-time"/>
         </div>
       </div>
-      <p class="field-note">※ Birth time determines your Rising sign</p>
+      <p class="field-note">※ Birth time determines your Rising sign — the most important piece</p>
       <div class="form-btns">
         <button class="btn-ghost" id="step1-back">← Back</button>
         <button class="btn-primary" id="step1-next">Continue →</button>
       </div>
     </div>
 
-    <!-- Step 2 -->
+    <!-- Step 2: location -->
     <div class="form-step" id="fstep-2">
       <h2 class="font-display">Birth Location</h2>
-      <p class="step-sub">Your city determines your Rising sign &amp; house positions.</p>
+      <p class="step-sub">Search any city worldwide — we'll find the exact coordinates.</p>
       <div class="field city-field">
         <label>Birth City</label>
-        <input type="text" id="inp-city" placeholder="Search cities..." autocomplete="off" />
+        <input type="text" id="inp-city" placeholder="Type any city name worldwide…" autocomplete="off"/>
         <div class="city-drop" id="city-drop"></div>
       </div>
       <div class="coords-row" id="coords-row" style="display:none">
@@ -112,6 +105,7 @@
         <div><span>LON</span><strong id="c-lon">—</strong></div>
         <div><span>TZ</span><strong id="c-tz">—</strong></div>
       </div>
+      <p class="field-note" id="city-source-note" style="display:none"></p>
       <div class="form-btns">
         <button class="btn-ghost" id="step2-back">← Back</button>
         <button class="btn-primary" id="step2-submit">✦ Calculate My Chart</button>
@@ -120,32 +114,26 @@
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════════════
-     SCREEN: MAIN APP
-══════════════════════════════════════════════════ -->
+<!-- SCREEN: MAIN APP -->
 <div id="screen-app" class="screen">
   <div class="stars" id="stars3"></div>
 
-  <!-- App Header -->
   <header class="app-header">
     <div class="hdr-brand">✦ ASTRAMIND</div>
     <div class="hdr-signs" id="hdr-signs"></div>
-    <button class="hdr-btn" id="test-btn" title="Run Tests" onclick="App.toggleTestPanel()">⚗</button>
+    <button class="hdr-btn" title="Run Tests" onclick="App.toggleTestPanel()">⚗</button>
   </header>
 
-  <!-- Tab contents -->
   <main class="app-main">
 
-    <!-- HOME TAB -->
+    <!-- HOME -->
     <div class="tab active" id="tab-home">
       <div class="home-top">
         <div class="greeting-meta" id="greeting-meta"></div>
         <h2 class="font-display greeting-name" id="greeting-name">Loading…</h2>
         <p class="greeting-signs" id="greeting-signs"></p>
       </div>
-
       <div class="big3" id="big3"></div>
-
       <section class="section">
         <div class="sec-label">TODAY'S VIBE</div>
         <div class="insight-hero" id="daily-hero">
@@ -154,9 +142,8 @@
           <button class="read-more" id="daily-expand-btn">Read full ▼</button>
         </div>
       </section>
-
       <section class="section">
-        <div class="decision-hero" id="decision-hero" onclick="App.switchTab('insights'); App.switchPeriod('decision')">
+        <div class="decision-hero" onclick="App.switchTab('insights');App.switchPeriod('decision')">
           <div class="dh-top">
             <div class="dh-icon">⊕</div>
             <div class="dh-text"><strong>Decision Mode</strong><span>Ask your chart anything</span></div>
@@ -167,10 +154,9 @@
             <div>"Is this a good time to invest?"</div>
             <div>"What does my chart say about this?"</div>
           </div>
-          <div class="btn-primary btn-full dh-cta">✦ Ask My Chart →</div>
+          <div class="btn-primary btn-full dh-cta" style="pointer-events:none">✦ Ask My Chart →</div>
         </div>
       </section>
-
       <section class="section">
         <div class="sec-header">
           <div class="sec-label">THIS WEEK — QUICK READ</div>
@@ -178,50 +164,44 @@
         </div>
         <div id="weekly-snap"></div>
       </section>
-
       <section class="section">
         <div class="sec-label">YOUR CURRENT LIFE CHAPTER</div>
         <div id="dasha-home"></div>
       </section>
     </div>
 
-    <!-- CHART TAB -->
+    <!-- CHART -->
     <div class="tab" id="tab-chart">
       <div class="page-hdr">
         <div class="pg-eye">YOUR BIRTH CHART</div>
         <h2 class="font-display">Planetary Blueprint</h2>
         <div class="pg-sub" id="chart-meta"></div>
       </div>
-
       <div class="sys-toggle">
-        <button class="sys-btn active" data-sys="western" id="btn-western">🌍 Western</button>
-        <button class="sys-btn" data-sys="vedic" id="btn-vedic">🕉 Vedic</button>
+        <button class="sys-btn active" id="btn-western">🌍 Western</button>
+        <button class="sys-btn" id="btn-vedic">🕉 Vedic</button>
       </div>
       <div class="vedic-note" id="vedic-note" style="display:none">
         💡 Vedic astrology shifts all signs back ~23°. Indian astrologers use this. Western is what most apps use.
       </div>
-
-      <div class="sec-label" style="margin-top:18px">THE BIG 3</div>
+      <div class="sec-label" style="margin:18px 20px 8px">THE BIG 3</div>
       <div id="big3-expanded"></div>
-
       <div class="chart-toggle-wrap">
         <button class="btn-ghost btn-full" id="chart-diagram-btn">📐 Birth Chart Diagram ▼</button>
         <div id="chart-diagram-wrap" style="display:none">
-          <canvas id="chart-canvas" width="300" height="300" style="display:block;margin:0 auto;"></canvas>
-          <p class="chart-note">North Indian style. Hover/tap each house to see what's inside.</p>
+          <canvas id="chart-canvas" width="300" height="300" style="display:block;margin:0 auto"></canvas>
+          <p class="chart-note">North Indian style. Tap each house to see what's inside.</p>
           <div class="house-tip" id="house-tip" style="display:none"></div>
         </div>
       </div>
-
-      <div class="sec-label" style="margin-top:18px">ALL YOUR PLANETS — TAP TO LEARN</div>
+      <div class="sec-label" style="margin:18px 20px 8px">ALL YOUR PLANETS — TAP TO LEARN</div>
       <div class="planet-list" id="planet-list"></div>
-
       <div id="yogas-wrap"></div>
     </div>
 
-    <!-- BLEND TAB -->
+    <!-- BLEND -->
     <div class="tab" id="tab-blend">
-      <!-- Landing / list -->
+      <!-- Landing -->
       <div id="blend-landing">
         <div class="page-hdr">
           <div class="pg-eye">RELATIONSHIP INTELLIGENCE</div>
@@ -231,14 +211,13 @@
         <div id="blend-notice" style="display:none"></div>
         <div id="blend-how-it-works" style="display:none">
           <div class="hiw"><span>🪐</span><div><strong>Synastry Analysis</strong><p>How your planets interact — Moon-Moon, Venus-Mars, the real dynamics.</p></div></div>
-          <div class="hiw"><span>📊</span><div><strong>Living Insights</strong><p>Updates weekly/monthly based on where planets actually are.</p></div></div>
+          <div class="hiw"><span>📊</span><div><strong>Living Insights</strong><p>Updates weekly/monthly based on current planetary positions.</p></div></div>
           <div class="hiw"><span>⊕</span><div><strong>Ask Together</strong><p>"Should we move?" Analyzed through both charts simultaneously.</p></div></div>
         </div>
         <div id="blend-list"></div>
         <button class="btn-blend btn-full" id="create-blend-btn">✦ Create New AstroBlend</button>
       </div>
-
-      <!-- Creator flow -->
+      <!-- Creator -->
       <div id="blend-creator" style="display:none">
         <div class="page-hdr">
           <button class="btn-back" onclick="App.showBlendLanding()">← Back</button>
@@ -248,26 +227,23 @@
         </div>
         <div id="creator-content"></div>
       </div>
-
-      <!-- Blend dashboard -->
+      <!-- Dashboard -->
       <div id="blend-dash" style="display:none"></div>
     </div>
 
-    <!-- INSIGHTS TAB -->
+    <!-- INSIGHTS -->
     <div class="tab" id="tab-insights">
       <div class="page-hdr">
         <div class="pg-eye">YOUR CHART SAYS</div>
         <h2 class="font-display">Insights</h2>
         <div class="pg-sub" id="insights-meta"></div>
       </div>
-
       <div class="period-tabs">
         <button class="ptab active" data-period="daily">☀️ Today</button>
         <button class="ptab" data-period="weekly">📅 Week</button>
         <button class="ptab" data-period="monthly">🌙 Month</button>
         <button class="ptab ptab-decision" data-period="decision">⊕ Ask</button>
       </div>
-
       <div class="period active" id="period-daily"></div>
       <div class="period" id="period-weekly"></div>
       <div class="period" id="period-monthly"></div>
@@ -279,11 +255,10 @@
             <p>Based on your Rising sign, Moon, and active life chapter.</p>
           </div>
           <div class="quick-qs" id="quick-qs"></div>
-          <textarea id="decision-ta" class="decision-ta" placeholder='Type your question... e.g. "Should I take this job offer?"'></textarea>
+          <textarea id="decision-ta" class="decision-ta" placeholder='Type your question… e.g. "Should I take this job offer?"'></textarea>
           <button class="btn-primary btn-full" id="ask-btn">✦ Get My Chart's Take</button>
           <div class="loading-dots" id="ask-loading" style="display:none">
-            <span></span><span></span><span></span>
-            <em>Reading planetary positions…</em>
+            <span></span><span></span><span></span><em>Reading planetary positions…</em>
           </div>
           <div class="decision-result" id="decision-res" style="display:none">
             <div class="dr-label">✦ CHART ANALYSIS</div>
@@ -295,7 +270,7 @@
       </div>
     </div>
 
-    <!-- PROFILE TAB -->
+    <!-- PROFILE -->
     <div class="tab" id="tab-profile">
       <div class="page-hdr">
         <div class="pg-eye">YOUR PROFILE</div>
@@ -311,9 +286,9 @@
       <div class="ptab2-content" id="ptab2-users"></div>
       <div class="ptab2-content" id="ptab2-bookmarks"></div>
     </div>
+
   </main>
 
-  <!-- Bottom nav -->
   <nav class="bottom-nav">
     <button class="nav-btn active" data-tab="home"><span>◎</span><em>Home</em></button>
     <button class="nav-btn" data-tab="chart"><span>⊛</span><em>Chart</em></button>
@@ -323,9 +298,7 @@
   </nav>
 </div>
 
-<!-- ══════════════════════════════════════════════════
-     TEST PANEL
-══════════════════════════════════════════════════ -->
+<!-- TEST PANEL -->
 <div id="test-panel" style="display:none">
   <div class="test-hdr">
     <h3>⚗ AstraMind Test Suite</h3>
@@ -338,12 +311,12 @@
   <div id="test-results"></div>
 </div>
 
-<!-- Footer -->
 <footer class="app-footer">
-  <span>AstraMind v1.0.0</span> · <span>Data stored locally on your device</span>
+  <span>AstraMind v1.1.0</span> · <span>Data stored locally · Global city search powered by OpenStreetMap</span>
 </footer>
 
 <script src="astrology.js"></script>
+<script src="geocode.js"></script>
 <script src="insights.js"></script>
 <script src="blend.js"></script>
 <script src="app.js"></script>

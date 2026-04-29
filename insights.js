@@ -137,7 +137,7 @@ const InsightEngine = (function () {
       category = 'career'; result = career(ctx, question);
     } else if (/money|invest|wealth|stock|loan|debt|financial|property|rich/.test(q)) {
       category = 'wealth'; result = wealth(ctx, question);
-    } else if (/love|relation|partner|marry|marriage|divorce|breakup|dating|romantic|girlfriend|boyfriend|spouse|husband|wife/.test(q)) {
+    } else if (/love|relation|partner|married|marry|marriage|divorce|breakup|dating|romantic|girlfriend|boyfriend|spouse|husband|wife|commit|wedded/.test(q)) {
       category = 'love'; result = love(ctx, question);
     } else if (/health|sick|diet|exercise|weight|stress|anxiety|mental|body|fitness/.test(q)) {
       category = 'health'; result = health(ctx);
